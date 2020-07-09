@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { fetchProduct } from '../actions/productActions.js'
 
-class SignIn extends React.Component{
+class Products extends React.Component{
   render(){
     return(
       <div>
@@ -9,5 +11,9 @@ class SignIn extends React.Component{
     )
   }
 }
-
-export default SignIn
+const mapStateToProps = (state) => {
+  return({
+    products: state.products.products
+  })
+}
+export default connect(mapStateToProps,{fetchProduct})(Products)
